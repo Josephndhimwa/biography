@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biographies</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #c92e5c;
+            color: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            opacity: 0; /* Start hidden */
+            animation: fadeIn 2s forwards; /* Fade-in animation */
+        }
+
+        header .logo img {
+            width: 150px;
+        }
+
+        header .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        header .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        header .nav-links a:hover {
+            color: #f4f4f4;
+        }
+
+        /* Page Title */
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-top: 100px;
+            color: #004C8C;
+        }
+
+        /* Biography Grid */
+        .bio-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Biography Card */
+        .bio-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            width: 280px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .bio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .bio-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .bio-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .bio-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .bio-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #004C8C;
+            margin-bottom: 10px;
+        }
+
+        .bio-title {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .bio-description {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .view-more {
+            text-decoration: none;
+            color: #004C8C;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .view-more:hover {
+            color: #ff1c3d;
+        }
+
+        /* Card Animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .bio-card {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #00254d;
+            color: white;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-section {
+            max-width: 300px;
+            margin: 10px;
+        }
+
+        footer .footer-section h3 {
+            font-size: 20px;
+            color: #00c0ff;
+            margin-bottom: 15px;
+        }
+
+        footer .footer-section p, 
+        footer .footer-section a {
+            color: #ffffff;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        footer .footer-section a:hover {
+            color: #00c0ff;
+        }
+
+        footer .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        footer .social-icons a {
+            color: #ffffff;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .footer-button {
+            background-color: #00c0ff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .footer-button:hover {
+            background-color: #008bbd;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            header .nav-links {
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+            }
+
+            #main-content h1 {
+                font-size: 24px;
+            }
+
+            #main-content p {
+                font-size: 16px;
+            }
+
+            #main-content .cta-buttons {
+                flex-direction: column;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<header>
+    <div class="logo">
+        <img src="vu-logo.png" alt="Website Logo"> <!-- Replace with your logo -->
+    </div>
+    <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about us.html">About Us</a></li>
+        <li><a href="biographies.html">Biographies</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+</header>
+
+<!-- Page Title -->
+<h1>Meet Our Team</h1>
+
+<!-- Biography Grid -->
+<div class="bio-grid">
+    <!-- Example Biography Card -->
+    <div class="bio-card">
+        <img src="joseph.jpg" alt="Member 1">
+        <div class="bio-content">
+            <h2 class="bio-name">Joseph Ndahimwa</h2>
+            <p class="bio-title">Computer Science</p>
+            <p class="bio-description">John has over 10 years of experience in software engineering, specializing in web development and cloud computing.</p>
+            <a href="participant1.html" class="view-more">View More</a>
+        </div>
+        
+    </div>
+    <div class="bio-card">
+        <img src="naume.jpg" alt="Member 2">
+        <div class="bio-content">
+            <h2 class="bio-name">Kabasinga Naume</h2>
+            <p class="bio-title">Computer Science</p>
+            <p class="bio-description">Naume has over 10 years of experience in computer science, specializing in web development and cloud computing.</p>
+            <a href="participant2.html" class="view-more">View More</a>
+        </div>
+    </div>
+    
+    <div class="bio-card">
+        <img src="juma.jpg" alt="Member 3">
+        <div class="bio-content">
+            <h2 class="bio-name">Juma Kueth</h2>
+            <p class="bio-title">Internet Technology</p>
+            <p class="bio-description">Bachelor of Information Technology, Victoria University, Kampala 
+                Certificate in Computer Science, YMCA Comprehensive Institute, Kampala 
+                Secondary Education, St. Andrew’s College, Moyo 
+                Primary Education, Comboni Primary School </p>
+            <a href="participant3.html" class="view-more">View More</a>
+        </div>
+    </div>
+    
+    <div class="bio-card">
+        <img src="isaih.jpg" alt="Member 4">
+        <div class="bio-content">
+            <h2 class="bio-name"> Isaiah Ndebwoha</h2>
+            <p class="bio-title">Software Engineering </p>
+            <p class="bio-description">Currently pursuing a Bachelors degree of Software engineering  at Victoria University.
+                - went to King's College Budo for both A and O levels.</p>
+            <a href="participant4.html" class="view-more">View More</a>
+        </div>
+    </div>
+    <div class="bio-card">
+        <img src="kita.jpg" alt="Member 5">
+        <div class="bio-content">
+            <h2 class="bio-name">Kitahimbwa Nabillah Zuenah</h2>
+            <p class="bio-title">Animation and Visual Effects</p>
+            <p class="bio-description">Currently pursuing a Bachelors degree of Animation and Visual Effects at Victoria University. <br>
+                - went to St.Marys Kitende for O’level and SEROMA Christian high school for A’level </p>
+            <a href="participant5.html" class="view-more">View More</a>
+        </div>
+    </div>
+    
+    <div class="bio-card">
+        <img src="ivan.jpg" alt="Member6">
+        <div class="bio-content">
+            <h2 class="bio-name"> Ivan Ssenabulya</h2>
+            <p class="bio-title">Computer Science</p>
+            <p class="bio-description">Currently pursuing a bachelor's degree in Computer science at Victoria University. <br>
+                went to Seeta high school for both A and O level.
+                </p>
+            <a href="participant6.html" class="view-more">View More</a>
+        </div>
+    </div>
+
+    <div class="bio-card">
+        <img src="ham.jpg" alt="Member 7">
+        <div class="bio-content">
+            <h2 class="bio-name">Mugerere Rahman</h2>
+            <p class="bio-title">Computer Science</p>
+            <p class="bio-description"> Currently pursuing a Bachelors degree of Computer Science at Victoria University. <br>
+                - Went to Kibuli secondary school for O level and Naalya Secondary school for A level.
+                </p>
+            <a href="participant7.html" class="view-more">View More</a>
+        </div>
+    </div>
+    <div class="bio-card">
+        <img src="rahay.jpg" alt="Member 8">
+        <div class="bio-content">
+            <h2 class="bio-name">Asiimwe Rayan Reyhana</h2>
+            <p class="bio-title">Animation and Visual Effects</p>
+            <p class="bio-description">John has over 10 years of experience in software engineering, specializing in web development and cloud computing.</p>
+            <a href="participant8.html" class="view-more">View More</a>
+        </div>
+    </div>
+    
+    <div class="bio-card">
+        <img src="peter1.jpg" alt="Member 9">
+        <div class="bio-content">
+            <h2 class="bio-name">Nkundizana Peter</h2>
+            <p class="bio-title">Software Engineering</p>
+            <p class="bio-description">Currently pursuing a Bachelor's degree in Software Engineering at Victoria University. <br>
+                 Completed both A and O levels at Duhaga ss Hoima 
+                </p>
+            <a href="participant9.html" class="view-more">View More</a>
+        </div>
+    </div>
+    
+    <div class="bio-card">
+        <img src="peter.jpg" alt="Member 10">
+        <div class="bio-content">
+            <h2 class="bio-name">James Ssewaya Sebuko</h2>
+            <p class="bio-title">Animation and Visual Effects</p>
+            <p class="bio-description">James Ssewaya Sebuko is a highly accomplished Brand Designer,
+                 Senior Graphic Designer, Public Speaker, and Consultant with a keen eye for detail and
+                  leadership. He has a strong background in guiding creative teams</p>
+            <a href="participant10.html" class="view-more">View More</a>
+        </div>
+    </div>
+</div>
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-section">
+        <h3>PIXEL PERFECT DESIGNS</h3>
+        <p>Our Address:<br>
+           Kampala Road, Kampala</p>
+        <p>PIXEL DESIGNS, Your choose.</p>
+        <p>"PIXEL DESIGNS, best than All"</p>
+    </div>
+    
+    <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>Send us an email at <a href="mailto:info@pixeldesigns.ac.ug">info@pixeldesigns.ac.ug</a></p>
+        <p>General Enquiries:<br>
+           Tel: +256 780 905 116 or <a href="mailto:head-marketing@gmail.com">head-marketing@gmail.com</a></p>
+        <p>Program Maneger:<br>
+           Tel: +256 766 780 658</p>
+        <p>Admissions & Registry:<br>
+           <a href="josephndahimwa@gmail.com">josephndahimwa@gmail.com</a></p>
+        <a href="contact.html" class="footer-button">Send Us a Message</a>
+    </div>
+
+    <div class="footer-section">
+        <div class="social-icons">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+            <a href="#">LinkedIn</a>
+        </div>
+        <div style="margin-top: 20px;">
+            <img src="vu-logo.png" alt="Victoria University Logo" style="width: 150px;">
+            <p>Join us to level up your skill</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

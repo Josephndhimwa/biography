@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #fafafc, #8f94fb);
+      color: #fff;
+    }
+
+    .contact-container {
+      max-width: 500px;
+      margin: 100px auto 50px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .intro-text {
+      margin-bottom: 30px;
+      font-size: 1.2em;
+    }
+
+    .form-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+      background: #fff;
+      color: #333;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      box-shadow: 0 5px 15px rgba(78, 84, 200, 0.8);
+    }
+
+    textarea {
+      resize: none;
+      height: 100px;
+    }
+
+    label {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: #aaa;
+      transition: all 0.3s ease;
+    }
+
+    input:focus + label, 
+    textarea:focus + label,
+    input:not(:placeholder-shown) + label,
+    textarea:not(:placeholder-shown) + label {
+      top: -10px;
+      font-size: 0.8em;
+      color: #4e54c8;
+    }
+
+    .submit-btn {
+      background-color: #4e54c8;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #8f94fb;
+      transform: scale(1.05);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #formResponse {
+      margin-top: 20px;
+      font-size: 1.2em;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    header {
+      background-color: #004C8C;
+      color: white;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+
+    header .logo img {
+      width: 150px;
+    }
+
+    header .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    header .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    header .nav-links a:hover {
+      color: #f4f4f4;
+    }
+
+
+    footer {
+      background-color: #00254d;
+      color: white;
+      padding: 40px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    footer .footer-section {
+      max-width: 300px;
+      margin: 10px;
+    }
+
+    footer .footer-section h3 {
+      font-size: 20px;
+      color: #00c0ff;
+      margin-bottom: 15px;
+    }
+
+    footer .footer-section p, 
+    footer .footer-section a {
+      color: #ffffff;
+      font-size: 16px;
+      text-decoration: none;
+    }
+
+    footer .footer-section a:hover {
+      color: #00c0ff;
+    }
+
+    footer .social-icons {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    footer .social-icons a {
+      color: #ffffff;
+      font-size: 24px;
+      text-decoration: none;
+    }
+
+    .footer-button {
+      background-color: #00c0ff;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .footer-button:hover {
+      background-color: #008bbd;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="vu-logo.png" alt="Website Logo">
+    </div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about us.html">About Us</a></li>
+      <li><a href="biographies.html">Biographies</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </header>
+
+  <div class="contact-container">
+    <h3>Contact Us</h3>
+    <p class="intro-text">We'd love to hear from you! Fill out the form below to get in touch.</p>
+    <form id="contactForm">
+      <div class="form-group">
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <label for="name">Your Name</label>
+      </div>
+      <div class="form-group">
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        <label for="email">Your Email</label>
+      </div>
+      <div class="form-group">
+        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+        <label for="message">Your Message</label>
+      </div>
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+    <p id="formResponse" class="hidden"></p>
+  </div>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const formResponse = document.getElementById('formResponse');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      formResponse.textContent = "Sending...";
+      formResponse.classList.remove('hidden');
+
+      try {
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        formResponse.textContent = "Thank you! Your message has been sent.";
+        formResponse.style.color = "#8f94fb";
+        form.reset();
+      } catch {
+        formResponse.textContent = "Oops! Something went wrong. Please try again.";
+        formResponse.style.color = "red";
+      }
+    });
+  </script>
+
+  <footer>
+    <div class="footer-section">
+      <h3>PIXEL PERFECT DESIGNS</h3>
+      <p>Our Address:<br>Kampala Road, Kampala</p>
+      <p>PIXEL DESIGNS, Your choice.</p>
+      <p>"PIXEL DESIGNS, better than All"</p>
+    </div>
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <p>Send us an email at <a href="mailto:info@pixeldesigns.ac.ug">info@pixeldesigns.ac.ug</a></p>
+      <p>General Enquiries:<br>Tel: +256 780 905 116 or <a href="mailto:head-marketing@gmail.com">head-marketing@gmail.com</a></p>
+      <p>Program Manager:<br>Tel: +256 766 780 658</p>
+      <p>Admissions & Registry:<br><a href="mailto:josephndahimwa@gmail.com">josephndahimwa@gmail.com</a></p>
+      <a href="contact.html" class="footer-button">Send Us a Message</a>
+    </div>
+    <div class="footer-section">
+      <div class="social-icons">
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+
+      </div>
+      <div style="margin-top: 20px;">
+        <img src="vu-logo.png" alt="Victoria University Logo" style="width: 150px;">
+        <p>Join us to level up your skills</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

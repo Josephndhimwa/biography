@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biography Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f1f1f1;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #004C8C;
+            color: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        header .logo img {
+            width: 150px;
+        }
+
+        header .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        header .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        header .nav-links a:hover {
+            color: #f4f4f4;
+        }
+
+        header .vu-logo img {
+            width: 150px;
+        }
+
+        @keyframes slideshow {
+            0% { background-image: url('4.jpg'); }
+            20% { background-image: url('1.jpg'); }
+            40% { background-image: url('2.jpg'); }
+            60% { background-image: url('3.jpg'); }
+            80% { background-image: url('5.jpg'); }
+            100% { background-image: url('4.jpg'); }
+        }
+
+        #experience-banner img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        #main-content {
+            margin-top: 120px;
+            padding: 100px 20px;
+            text-align: center;
+            color: rgb(230, 14, 14);
+            background-size: cover;
+            background-position: center;
+            animation: slideshow 25s infinite ease-in-out; 
+        }
+
+        #main-content h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        #main-content p {
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+
+        #main-content .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        #main-content .cta-buttons a {
+            background-color: #111111;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s;
+        }
+
+        #main-content .cta-buttons a:hover {
+            background-color: #ff1c3d;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #00254d;
+            color: white;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-section {
+            max-width: 300px;
+            margin: 10px;
+        }
+
+        footer .footer-section h3 {
+            font-size: 20px;
+            color: #00c0ff;
+            margin-bottom: 15px;
+        }
+
+        footer .footer-section p, 
+        footer .footer-section a {
+            color: #ffffff;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        footer .footer-section a:hover {
+            color: #00c0ff;
+        }
+
+        footer .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        footer .social-icons a {
+            color: #ffffff;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .footer-button {
+            background-color: #00c0ff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .footer-button:hover {
+            background-color: #008bbd;
+        }
+
+        @media (max-width: 768px) {
+            header .nav-links {
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+            }
+
+            #main-content h1 {
+                font-size: 24px;
+            }
+
+            #main-content p {
+                font-size: 16px;
+            }
+
+            #main-content .cta-buttons {
+                flex-direction: column;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="vu-logo.png" alt="Logo">
+    </div>
+    <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about us.html">About Us</a></li>
+        <li><a href="biographies.html">Biographies</a></li>
+        <li><a href="contact.html">Contact us</a></li>
+    </ul>
+    <div class="vu-logo">
+        <img src="vu-logo.png" alt="VU Logo">
+    </div>
+</header>
+<section id="main-content">
+    <h1>Welcome to PIXEL PERFECT DESIGNS</h1>
+    <p><h2><span style="color: blue;">INTERNET TECHNOLOGY AND WEB DESIGN</span></h2></p>
+    <div class="cta-buttons">
+        <a href="about us.html">Learn More</a>
+    </div>
+</section>
+<section id="experience-banner">
+    <img src="group.jpg" alt="Experience Banner">
+</section>
+
+<footer>
+    <div class="footer-section">
+        <h3>PIXEL PERFECT DESIGNS</h3>
+        <p>Our Address:<br>
+           Kampala Road, Kampala</p>
+        <p>PIXEL DESIGNS, Your choose.</p>
+        <p>"PIXEL DESIGNS, best than All"</p>
+    </div>
+    
+    <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>Send us an email at <a href="mailto:info@pixeldesigns.ac.ug">info@pixeldesigns.ac.ug</a></p>
+        <p>General Enquiries:<br>
+           Tel: +256 780 905 116 or <a href="mailto:head-marketing@gmail.com">head-marketing@gmail.com</a></p>
+        <p>Program Manager:<br>
+           Tel: +256 766 780 658</p>
+        <p>Admissions & Registry:<br>
+           <a href="mailto:josephndahimwa@gmail.com">josephndahimwa@gmail.com</a></p>
+        <a href="contact.html" class="footer-button">Send Us a Message</a>
+    </div>
+
+    <div class="footer-section">
+        <div class="social-icons">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+            <a href="#">LinkedIn</a>
+        </div>
+        <div style="margin-top: 20px;">
+            <img src="vu-logo.png" alt="Victoria University Logo" style="width: 150px;">
+            <p>Join us to level up your skill</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

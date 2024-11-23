@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Biography Website</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background-color: #004C8C;
+            color: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            opacity: 0; /* Start hidden */
+            animation: fadeIn 2s forwards; /* Fade-in animation */
+        }
+
+        header .logo img {
+            width: 150px;
+        }
+
+        header .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        header .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        header .nav-links a:hover {
+            color: #f4f4f4;
+        }
+
+        /* About Us Section */
+        .about-section {
+            padding: 100px 20px 50px;
+            text-align: center;
+            background-color: #fff;
+            margin-top: 80px;
+            opacity: 0;
+            animation: fadeIn 2s forwards 0.5s; /* Fade-in after the header */
+        }
+
+        .about-section h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .about-section .mission-statement {
+            font-size: 20px;
+            color: #004C8C;
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        .team {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeIn 2s forwards 1s; /* Fade-in for team after some delay */
+        }
+
+        .team-member {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 250px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideIn 1s ease forwards; /* Slide-in animation */
+        }
+
+        .team-member img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member h3 {
+            margin-top: 15px;
+            color: #333;
+            font-size: 20px;
+        }
+
+        .team-member p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-member:hover img {
+            transform: scale(1.05); /* Zoom effect on image */
+        }
+
+        /* Button Hover Effects */
+        .cta-buttons a {
+            background-color: #e50914; /* Red button */
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-buttons a:hover {
+            background-color: #ff1c3d;
+            transform: scale(1.1); /* Button zoom effect */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #00254d;
+            color: white;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-section {
+            max-width: 300px;
+            margin: 10px;
+        }
+
+        footer .footer-section h3 {
+            font-size: 20px;
+            color: #00c0ff;
+            margin-bottom: 15px;
+        }
+
+        footer .footer-section p, 
+        footer .footer-section a {
+            color: #ffffff;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        footer .footer-section a:hover {
+            color: #00c0ff;
+        }
+
+        footer .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        footer .social-icons a {
+            color: #ffffff;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .footer-button {
+            background-color: #00c0ff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .footer-button:hover {
+            background-color: #008bbd;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .team {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .team-member {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="logo">
+        <img src="vu-logo.png" alt="Website Logo"> <!-- Replace with your logo -->
+    </div>
+    <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about us.html">About Us</a></li>
+        <li><a href="biographies.html">Biographies</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+</header>
+
+<!-- About Us Section -->
+<section class="about-section">
+    <h1>About Us</h1>
+    <p>Welcome to our biography website, where we aim to share the life stories and accomplishments of remarkable individuals. Our mission is to educate, inspire, and motivate others by highlighting the contributions of those who have made a lasting impact in various fields.</p>
+    <p>Our website features detailed biographies, stories, and images of individuals who have left a legacy of influence, empowerment, and change. We believe in the power of storytelling and strive to provide engaging and informative content for people of all ages and backgrounds.</p>
+    
+    <p class="mission-statement">"Empowering the world through the power of stories and inspiration."</p>
+    
+    <h2>Our Team</h2>
+    <div class="team">
+        <!-- Team Member 1 -->
+        <div class="team-member">
+            <img src="joseph.jpg" alt="Team Member 1"> <!-- Replace with actual images -->
+            <h3>Joseph Ndahimwa</h3>
+            <p>VU-BCS-2403-1218-DAY</p>
+        </div>
+        <!-- Team Member 2 -->
+        <div class="team-member">
+            <img src="juma.jpg" alt="Team Member 2">
+            <h3>Juma Kueth</h3>
+            <p>VU-BIT-2403-0682-DAY</p>
+        </div>
+        <!-- Team Member 3 -->
+        <div class="team-member">
+            <img src="naume.jpg" alt="Team Member 3">
+            <h3>Kabasinga Naume</h3>
+            <p>VU-BCS-2403-0000-DAY</p>
+        </div>
+        <!-- Team Member 4 -->
+        <div class="team-member">
+            <img src="isaih.jpg" alt="Team Member 4"> 
+            <h3>Isaiah  Ndebwoha</h3>
+            <p>VU-BSF-2403-0999-DAY</p>
+        </div>
+        <!-- Team Member 5 -->
+        <div class="team-member">
+            <img src="ivan.jpg" alt="Team Member 5"> 
+            <h3>Ssenabulya ivan</h3>
+            <p>VU-BCS-2403-0000-DAY</p>
+        </div>
+        <!-- Team Member 6 -->
+        <div class="team-member">
+            <img src="ham.jpg" alt="Team Member 6"> 
+            <h3>Mugerere Rahman</h3>
+            <p>VU-BCS-2403-0792-DAY</p>
+        </div>
+        <!-- Team Member 7 -->
+        <div class="team-member">
+            <img src="kita.jpg" alt="Team Member 7"> 
+            <h3>kitahimbwa nabillah</h3>
+            <p>VU-DAV-2403-0641-DAY</p>
+        </div>
+        <!-- Team Member 8 -->
+        <div class="team-member">
+            <img src="peter1.jpg" alt="Team Member 8"> 
+            <h3>Nkundizana Peter</h3>
+            <p>VU-BSF-2403-0857-DAY</p>
+        </div>
+        <!-- Team Member 9 -->
+        <div class="team-member">
+            <img src="rahay.jpg" alt="Team Member 9"> 
+            <h3>Asiimwe Rayan Reyhana</h3>
+            <p>VU-DAV-2403-0000-DAY</p>
+        </div>
+         <!-- Team Member 9 -->
+
+        <div class="team-member">
+            <img src="peter.jpg" alt="Team Member 10"> 
+            <h3>Ssewaya James</h3>
+            <p>VU-DAV-2403-0000-DAY</p>
+        </div>
+        <!-- Add more team members here if needed -->
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-section">
+        <h3>PIXEL PERFECT DESIGNS</h3>
+        <p>Our Address:<br>
+           Kampala Road, Kampala</p>
+        <p>PIXEL DESIGNS, Your choose.</p>
+        <p>"PIXEL DESIGNS, best than All"</p>
+    </div>
+    
+    <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>Send us an email at <a href="mailto:info@pixeldesigns.ac.ug">info@pixeldesigns.ac.ug</a></p>
+        <p>General Enquiries:<br>
+           Tel: +256 780 905 116 or <a href="mailto:head-marketing@gmail.com">head-marketing@gmail.com</a></p>
+        <p>Program Maneger:<br>
+           Tel: +256 766 780 658</p>
+        <p>Admissions & Registry:<br>
+           <a href="josephndahimwa@gmail.com">josephndahimwa@gmail.com</a></p>
+        <a href="contact.html" class="footer-button">Send Us a Message</a>
+    </div>
+
+    <div class="footer-section">
+        <div class="social-icons">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+            <a href="#">LinkedIn</a>
+        </div>
+        <div style="margin-top: 20px;">
+            <img src="vu-logo.png" alt="Victoria University Logo" style="width: 150px;">
+            <p>Join us to level up your skill</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
